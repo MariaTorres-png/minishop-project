@@ -101,7 +101,7 @@ body.dark {
   border-radius: 8px;
   padding: 1rem;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 .tarjeta-producto img {
   width: 100px;
@@ -117,12 +117,17 @@ body.dark {
   padding: 0.5rem 1rem;
   border-radius: 6px;
   margin-bottom: 0.5rem;
-} 
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: lawngreen;
-    box-shadow: #333 2px 8px;
-    margin-bottom: 10px;
-  }
+}
+a:hover {
+  color: #747bff;
+}
+button {
+  background-color: lawngreen;
+  box-shadow: #333 2px 8px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+span {
+  margin-right: 10px;
+}
