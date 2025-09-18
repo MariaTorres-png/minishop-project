@@ -4,10 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Pago = ({ carrito, cantidad, onIncrementar, onDecrementar }) => {
   const navigate = useNavigate();
-  const total = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
 
   const handlePagar = () => {
-    navigate("/Formulario", { state: { total } });
+    navigate("/Formulario", { state: { carrito } });
   };
 
   return (

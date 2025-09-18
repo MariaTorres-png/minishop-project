@@ -1,13 +1,8 @@
 import React, { useState } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useNavigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Catalogo from "./paginas/Catalogo";
 import Pago from "./paginas/Pago";
-import Exito from "./paginas/Formulario";
+import Formulario from "./paginas/formulario";
 import Encabezado from "./components/Encabezado";
 import { useTheme } from "./components/ThemeContext";
 
