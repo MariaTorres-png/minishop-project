@@ -37,6 +37,7 @@ const Encabezado = ({ onToggleTheme, theme, carrito }) => {
         </Link>
       </nav>
       <button onClick={onToggleTheme}>{theme === "light" ? "🌙" : "☀️"}</button>
+      <Link to="/productos"> CRUD Productos</Link>
     </header>
   );
 };
