@@ -9,6 +9,7 @@ import Catalogo from "./paginas/Catalogo";
 import Pago from "./paginas/Pago";
 import Formulario from "./paginas/Formulario";
 import Productos from "./paginas/Productos";
+import Estadisticas from "./paginas/Estadisticas";
 import Encabezado from "./components/Encabezado";
 import { useTheme } from "./components/ThemeContext";
 
@@ -89,6 +90,9 @@ const AppRouter = () => {
 
         {/* CRUD de productos */}
         <Route path="/productos" element={<Productos />} />
+
+        {/* Estadísticas */}
+        <Route path="/estadisticas" element={<Estadisticas />} />
       </Routes>
     </Router>
   );

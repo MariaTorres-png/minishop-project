@@ -1,34 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import BarraBusqueda from "../components/BarraBusqueda";
 import CuadriculaProductos from "../components/CuadriculaProductos";
 
-const productosIniciales = [
-  {
-    id: 1,
-    nombre: "Lana Chenille",
-    descripcion: "100% Acrilico",
-    precio: 15,
-    imagen: "/vite.svg",
-  },
-  {
-    id: 2,
-    nombre: "Lana Nube",
-    descripcion: "100% Acrilíco",
-    precio: 25,
-    imagen: "/vite.svg",
-  },
-  {
-    id: 3,
-    nombre: "Aguja Lanera",
-    descripcion: "Con punta de acero",
-    precio: 10,
-    imagen: "/vite.svg",
-  },
-];
-
 const Catalogo = ({ cantidades, onAgregar }) => {
+  const [productos, setProductos] = useState([]);
   const [busqueda, setBusqueda] = useState("");
-  const productosFiltrados = productosIniciales.filter((p) =>
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProductos = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/productos");
+        if (!response.ok) throw new Error("Error al obtener productos");
+        const data = await response.json();
+
+        // 🔥 Adaptar claves a lo que tu CuadriculaProductos espera
+        const productosTransformados = data.map((p) => ({
+          id: p.id_producto,
+          nombre: p.nombre_producto,
+          descripcion: p.descripcion,
+          precio: p.precio,
+          imagen: p.imagen_url,
+          activo: p.activo,
+        }));
+
+        setProductos(productosTransformados);
+      } catch (error) {
+        console.error("Error cargando productos:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProductos();
+  }, []);
+
+  if (loading) return <p>Cargando productos...</p>;
+
+  const productosFiltrados = productos.filter((p) =>
     p.nombre.toLowerCase().includes(busqueda.toLowerCase())
   );
 

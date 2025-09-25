@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "nombre": "Crochet Box Conejita",
+    "descripcion": "Caja con materiales para tu primer amigurumi",
+    "precio": 75000,
+    "imagen": "/public/vite.svg",
+    "activo": true
+  },
+  {
+    "id": 2,
+    "nombre": "Patrón Gato",
+    "descripcion": "PDF para tejer un gato navideño",
+    "precio": 1500,
+    "imagen": "/public/vite.svg",
+    "activo": true
+  }
+]
