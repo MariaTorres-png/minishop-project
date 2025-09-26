@@ -1,1 +1,1 @@
-export const API_URL = "https://minishop-backend-jcti.onrender.com";
+export const API_URL = "https://minishop-backend-jct1.onrender.com";
