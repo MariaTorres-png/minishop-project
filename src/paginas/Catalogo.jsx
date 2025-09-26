@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import BarraBusqueda from "../components/BarraBusqueda";
 import CuadriculaProductos from "../components/CuadriculaProductos";
+import { API_URL } from "../config";
 
 const Catalogo = ({ cantidades, onAgregar }) => {
   const [productos, setProductos] = useState([]);
@@ -10,7 +11,7 @@ const Catalogo = ({ cantidades, onAgregar }) => {
   useEffect(() => {
     const fetchProductos = async () => {
       try {
-        const response = await fetch("http://localhost:5000/productos");
+        const response = await fetch(`${API_URL}/productos`);
         if (!response.ok) throw new Error("Error al obtener productos");
         const data = await response.json();
 

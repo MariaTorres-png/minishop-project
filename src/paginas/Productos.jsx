@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-
-const API_URL = "http://localhost:5000/productos";
+import { API_URL } from "../config";
 
 const Productos = () => {
   const [productos, setProductos] = useState([]);
@@ -23,7 +22,7 @@ const Productos = () => {
   const fetchProductos = async () => {
     try {
       setLoading(true);
-      const res = await fetch(API_URL);
+      const res = await fetch(`${API_URL}/productos`);
       if (!res.ok) throw new Error("Error al cargar productos");
       const data = await res.json();
 
@@ -63,7 +62,7 @@ const Productos = () => {
 
     try {
       if (form.id) {
-        await fetch(`${API_URL}/${form.id}`, {
+        await fetch(`${API_URL}/productos/${form.id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -81,7 +80,7 @@ const Productos = () => {
           timer: 2000,
         });
       } else {
-        await fetch(API_URL, {
+        await fetch(`${API_URL}/productos`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -110,7 +109,7 @@ const Productos = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("¿Seguro que quieres eliminar este producto?")) return;
     try {
-      await fetch(`${API_URL}/${id}`, { method: "DELETE" });
+      await fetch(`${API_URL}/productos/${id}`, { method: "DELETE" });
       Swal.fire({
         icon: "warning",
         title: "Producto eliminado",

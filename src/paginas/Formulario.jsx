@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
+import { API_URL } from "../config";
 
 const Formulario = () => {
   const [form, setForm] = useState({
@@ -58,7 +59,7 @@ const Formulario = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/pedido", {
+      const response = await fetch(`${API_URL}/pedido`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

@@ -11,6 +11,7 @@ import {
   Line,
   ResponsiveContainer,
 } from "recharts";
+import { API_URL } from "../config";
 
 const mockData = {
   top_productos: [
@@ -36,7 +37,7 @@ const Estadisticas = () => {
     const fetchEstadisticas = async () => {
       try {
         const res = await fetch(
-          "http://localhost:5000/estadisticas/ventas?fecha_inicio=2025-09-15&fecha_fin=2025-09-30"
+          `${API_URL}/estadisticas/ventas?fecha_inicio=2025-09-15&fecha_fin=2025-09-30`
         );
 
         if (!res.ok) throw new Error("Error al obtener estadísticas");
